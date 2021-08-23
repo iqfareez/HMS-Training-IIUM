@@ -39,12 +39,7 @@ public class MainActivity extends AppCompatActivity {
         StatesViewAdapter statesViewAdapter = new StatesViewAdapter(this, arrayList);
 
         ListView statesListView = findViewById(R.id.listview);
-        statesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(view, arrayList.get(position).getStatesTitle() + arrayList.get(position).getStatesName(), BaseTransientBottomBar.LENGTH_SHORT).show();
-            }
-        });
+        statesListView.setOnItemClickListener((parent, view, position, id) -> Snackbar.make(view, arrayList.get(position).getStatesTitle() + arrayList.get(position).getStatesName(), BaseTransientBottomBar.LENGTH_SHORT).show());
 
         statesListView.setAdapter(statesViewAdapter);
 
