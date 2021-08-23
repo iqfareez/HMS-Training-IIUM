@@ -10,18 +10,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     ArrayList courseImg, courseName;
     Context context;
 
+
     // Constructor for initialization
     public Adapter(Context context, ArrayList courseImg, ArrayList courseName) {
         this.context = context;
         this.courseImg = courseImg;
         this.courseName = courseName;
+
     }
+
 
     @NonNull
     @Override
@@ -37,11 +43,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         int res = (int) courseImg.get(position);
         holder.images.setImageResource(res);
         holder.text.setText((String) courseName.get(position));
+
+
     }
+
 
     @Override
     public int getItemCount() {
-        return courseImg.size();
+        return courseName.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,5 +62,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             images = (ImageView) itemView.findViewById(R.id.courseImg);
             text = (TextView) itemView.findViewById(R.id.courseName);
         }
+
     }
 }
+
